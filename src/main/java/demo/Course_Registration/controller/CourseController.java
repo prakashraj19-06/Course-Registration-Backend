@@ -16,11 +16,6 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-    @GetMapping
-    public String hello(){
-        return "server successfully started ^-^";
-    }
-
     //ME-mannual data entry using postMan
     @PostMapping("/create")
     public Course addCourses(@RequestBody Course course){
@@ -57,11 +52,11 @@ public class CourseController {
 
     //get data from frontend
     @PostMapping("/courses/register")
-    public String enrollCourse(@RequestParam("name") String name,
+    public void enrollCourse(@RequestParam("name") String name,
                               @RequestParam("emailId") String emailId,
                               @RequestParam("courseName") String courseName){
         courseService.enrollCourse(name,emailId,courseName);
-        return "Conguratulations! "+name+" Enrollment successful for "+courseName;
+
     }
 
     @DeleteMapping("/delete/{id}")
