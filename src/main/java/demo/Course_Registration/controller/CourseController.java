@@ -17,6 +17,7 @@ public class CourseController {
     CourseService courseService;
 
     //ME-mannual data entry using postMan
+    //Course Table
     @PostMapping("/create")
     public Course addCourses(@RequestBody Course course){
         return courseService.addCourses(course);
@@ -40,6 +41,7 @@ public class CourseController {
     }
 
     //ME
+    //Course register student Table
     @PostMapping("/enrollNow")
     public CourseRegistry addEnroll(@RequestBody CourseRegistry course){
         return courseService.addEnroll(course);
